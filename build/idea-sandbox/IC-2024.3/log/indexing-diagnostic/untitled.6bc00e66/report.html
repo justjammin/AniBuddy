@@ -1,0 +1,405 @@
+<html>
+  <head>
+    <title>Indexing diagnostics of 'untitled'</title>
+    <style>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  width: 80%;
+}
+
+table.activity-table {
+  width: 100%;
+}
+
+table.narrow-activity-table {
+  width: 80%;
+}
+
+table.two-columns td {
+  width: 50%;
+}
+
+th, td {
+  padding: 3px;
+}
+
+th {
+  background: lightgrey;
+}
+
+td {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.stats-content {
+  margin-left: 20%;
+}
+
+.stats-activity-content {
+  margin-left: 20%;
+  margin-right: 5%;
+}
+
+.aggregate-report-content {
+  margin-left: 10%;
+}
+
+.aggregate-activity-report-content {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.aggregate-header {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-bottom: 0;
+}
+
+.table-with-margin{
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.navigation-bar {
+  width: 15%;
+  background-color: lightgrey;
+  position: fixed;
+  height: 100%;
+}
+
+div.navigation-bar ul {
+  list-style-type: none;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+}
+
+div.navigation-bar ul li a, label {
+  display: block;
+  color: #000;
+  padding: 8px 20px;
+  text-decoration: none;
+}
+
+label input {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+div.navigation-bar ul li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+.minor-data {}
+
+.invisible {
+  display: none;
+}
+
+.jetbrains-logo {
+  width: 50%;
+  bottom: 5%;
+  position: absolute;
+  left: 20%;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.linkable-table-row:hover {
+  background: #f2f3ff;
+  outline: none;
+  cursor: pointer;
+}
+
+.scanning-table-row {
+  background-color: aliceblue;
+}
+
+.not-applicable-data{
+  color: darkgrey;
+}</style>
+    <script>document.addEventListener("DOMContentLoaded", () => {
+  const rows = document.getElementsByClassName("linkable-table-row")
+  for (const row of rows) {
+    const href = row.getAttribute("href")
+    row.addEventListener("click", () => {
+      window.open(href, "_blank");
+    });
+  }
+});</script>
+  </head>
+  <body>
+    <div class="aggregate-activity-report-content">
+      <h1 class="aggregate-header">untitled</h1>
+      <div>All durations are wall time; total and content loading time include pauses
+        <table class="centered-text table-with-margin activity-table"><caption style="caption-side: bottom; text-align: right; font-size: 14px">Click for details</caption>
+          <thead>
+            <tr>
+              <th colspan="14">History of scannings and indexings</th>
+            </tr>
+            <tr>
+              <th colspan="7">Time</th>
+              <th colspan="5">Files</th>
+              <th rowspan="2">Scanning ID(s)</th>
+              <th rowspan="2">Scanning Type</th>
+            </tr>
+            <tr>
+              <th>Started</th>
+              <th>Started dumb mode</th>
+              <th>Finished</th>
+              <th>Total&nbsp;time</th>
+              <th>Time spent on pause</th>
+              <th>Full dumb mode time</th>
+              <th>Dumb mode time w/o pauses</th>
+              <th>Scanned</th>
+              <th>Shared indexes (w/o content loading)</th>
+              <th>Scheduled for indexing</th>
+              <th>Shared indexes (content loaded)</th>
+              <th>Total indexed (shared indexes included)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="linkable-table-row scanning-table-row" href="diagnostic-2026-04-28-07-45-21.289.html">
+              <td>07:45:20 28 Apr</td>
+              <td class="not-applicable-data">Didn't start</td>
+              <td>07:45:21 28 Apr</td>
+              <td>523 ms</td>
+              <td>1 ms</td>
+              <td>0</td>
+              <td>0</td>
+              <td>45500</td>
+              <td>0</td>
+              <td>0</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>0</td>
+              <td>full on project open</td>
+            </tr>
+            <tr class="linkable-table-row scanning-table-row" href="diagnostic-2026-04-28-07-41-45.598.html">
+              <td>07:41:40 28 Apr</td>
+              <td class="not-applicable-data">Didn't start</td>
+              <td>07:41:45 28 Apr</td>
+              <td>5 s 570 ms</td>
+              <td>&lt; 1 ms</td>
+              <td>0</td>
+              <td>0</td>
+              <td>45500</td>
+              <td>0</td>
+              <td>0</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>1</td>
+              <td>full on index restart</td>
+            </tr>
+            <tr class="linkable-table-row scanning-table-row" href="diagnostic-2026-04-28-07-37-07.709.html">
+              <td>07:37:07 28 Apr</td>
+              <td class="not-applicable-data">Didn't start</td>
+              <td>07:37:07 28 Apr</td>
+              <td>394 ms</td>
+              <td>1 ms</td>
+              <td>0</td>
+              <td>0</td>
+              <td>45500</td>
+              <td>0</td>
+              <td>0</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>0</td>
+              <td>full on project open</td>
+            </tr>
+            <tr class="linkable-table-row scanning-table-row" href="diagnostic-2026-04-28-06-55-09.165.html">
+              <td>06:55:08 28 Apr</td>
+              <td class="not-applicable-data">Didn't start</td>
+              <td>06:55:09 28 Apr</td>
+              <td>398 ms</td>
+              <td>1 ms</td>
+              <td>0</td>
+              <td>0</td>
+              <td>45500</td>
+              <td>0</td>
+              <td>0</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>0</td>
+              <td>full on project open</td>
+            </tr>
+            <tr class="linkable-table-row scanning-table-row" href="diagnostic-2026-04-28-06-52-04.537.html">
+              <td>06:52:04 28 Apr</td>
+              <td class="not-applicable-data">Didn't start</td>
+              <td>06:52:04 28 Apr</td>
+              <td>521 ms</td>
+              <td>3 ms</td>
+              <td>0</td>
+              <td>0</td>
+              <td>45500</td>
+              <td>0</td>
+              <td>0</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>0</td>
+              <td>full on project open</td>
+            </tr>
+            <tr class="linkable-table-row scanning-table-row" href="diagnostic-2026-04-28-00-32-52.121.html">
+              <td>00:32:51 28 Apr</td>
+              <td class="not-applicable-data">Didn't start</td>
+              <td>00:32:52 28 Apr</td>
+              <td>591 ms</td>
+              <td>1 ms</td>
+              <td>0</td>
+              <td>0</td>
+              <td>45499</td>
+              <td>0</td>
+              <td>0</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>0</td>
+              <td>full on project open</td>
+            </tr>
+            <tr class="linkable-table-row scanning-table-row" href="diagnostic-2026-04-28-00-26-37.047.html">
+              <td>00:26:37 28 Apr</td>
+              <td class="not-applicable-data">Didn't start</td>
+              <td>00:26:37 28 Apr</td>
+              <td>32 ms</td>
+              <td>&lt; 1 ms</td>
+              <td>0</td>
+              <td>0</td>
+              <td>1423</td>
+              <td>0</td>
+              <td>0</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>1</td>
+              <td>partial</td>
+            </tr>
+            <tr class="linkable-table-row scanning-table-row" href="diagnostic-2026-04-28-00-26-33.096.html">
+              <td>00:26:31 28 Apr</td>
+              <td class="not-applicable-data">Didn't start</td>
+              <td>00:26:33 28 Apr</td>
+              <td>1 s 372 ms</td>
+              <td>1 ms</td>
+              <td>0</td>
+              <td>0</td>
+              <td>45499</td>
+              <td>0</td>
+              <td>0</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>0</td>
+              <td>full on project open</td>
+            </tr>
+            <tr class="linkable-table-row scanning-table-row" href="diagnostic-2026-04-28-00-24-15.206.html">
+              <td>00:24:09 28 Apr</td>
+              <td class="not-applicable-data">Didn't start</td>
+              <td>00:24:15 28 Apr</td>
+              <td>5 s 775 ms</td>
+              <td>&lt; 1 ms</td>
+              <td>0</td>
+              <td>0</td>
+              <td>45499</td>
+              <td>0</td>
+              <td>0</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>3</td>
+              <td>full on index restart</td>
+            </tr>
+            <tr class="linkable-table-row" href="diagnostic-2026-04-28-00-12-34.308.html">
+              <td>00:12:23 28 Apr</td>
+              <td>00:12:23 28 Apr</td>
+              <td>00:12:34 28 Apr</td>
+              <td>10 s 549 ms</td>
+              <td>0</td>
+              <td>10 s 549 ms</td>
+              <td>10 s 549 ms</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>0</td>
+              <td>43446<br>(incl. 1 changed in VFS)<br>(incl. 1 with nothing to write)</td>
+              <td>2</td>
+              <td class="not-applicable-data">N/A</td>
+            </tr>
+            <tr class="linkable-table-row scanning-table-row" href="diagnostic-2026-04-28-00-12-23.752.html">
+              <td>00:12:21 28 Apr</td>
+              <td>00:12:22 28 Apr</td>
+              <td>00:12:23 28 Apr</td>
+              <td>2 s 318 ms</td>
+              <td>&lt; 1 ms</td>
+              <td>1 s 400 ms</td>
+              <td>1 s 400 ms</td>
+              <td>43841</td>
+              <td>0</td>
+              <td>43445</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>2</td>
+              <td>partial</td>
+            </tr>
+            <tr class="linkable-table-row scanning-table-row" href="diagnostic-2026-04-28-00-12-21.431.html">
+              <td>00:12:21 28 Apr</td>
+              <td class="not-applicable-data">Didn't start</td>
+              <td>00:12:21 28 Apr</td>
+              <td>24 ms</td>
+              <td>&lt; 1 ms</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>1</td>
+              <td>partial</td>
+            </tr>
+            <tr class="linkable-table-row" href="diagnostic-2026-04-28-00-12-04.668.html">
+              <td>00:12:02 28 Apr</td>
+              <td>00:12:02 28 Apr</td>
+              <td>00:12:04 28 Apr</td>
+              <td>2 s 476 ms</td>
+              <td>0</td>
+              <td>2 s 476 ms</td>
+              <td>2 s 476 ms</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>0</td>
+              <td>1647<br>(incl. 1 changed in VFS)<br>(incl. 1 with nothing to write)</td>
+              <td>0</td>
+              <td class="not-applicable-data">N/A</td>
+            </tr>
+            <tr class="linkable-table-row scanning-table-row" href="diagnostic-2026-04-28-00-12-02.178.html">
+              <td>00:12:00 28 Apr</td>
+              <td>00:12:01 28 Apr</td>
+              <td>00:12:02 28 Apr</td>
+              <td>1 s 372 ms</td>
+              <td>1 ms</td>
+              <td>1 s 149 ms</td>
+              <td>1 s 149 ms</td>
+              <td>1649</td>
+              <td>0</td>
+              <td>1646</td>
+              <td class="not-applicable-data">N/A</td>
+              <td class="not-applicable-data">N/A</td>
+              <td>0</td>
+              <td>full on project open</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

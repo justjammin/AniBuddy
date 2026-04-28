@@ -1,0 +1,12 @@
+Created-By: Gradle 9.4.1
+Version: 0.1.0
+Build-JVM: 26 (Eclipse Adoptium 26+35)
+Build-OS: Mac OS X 26.3.2 aarch64
+Build-Plugin: IntelliJ Platform Gradle Plugin
+Build-Plugin-Version: 2.5.0
+Platform-Type: IC
+Platform-Version: 2024.3
+Platform-Build: 243.21565.193
+Kotlin-Available: true
+Kotlin-Stdlib-Bundled: true
+Kotlin-Version: 2.1.21

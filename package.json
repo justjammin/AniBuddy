@@ -1,0 +1,75 @@
+{
+  "name": "anibuddy",
+  "displayName": "Anibuddy Agents",
+  "description": "VRM anime avatars that visualize your Claude Code agents in real time",
+  "version": "0.1.0",
+  "publisher": "justjammin",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Fun"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Anibuddy Agents",
+      "properties": {
+        "aniBuddy.vrmPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to your VRM model file. Set this to auto-load your character every session (e.g. /Users/you/MyCharacter.vrm)."
+        },
+        "aniBuddy.vrmaMapping": {
+          "type": "object",
+          "default": {
+            "idle":    "model_pose",
+            "running": "spin",
+            "waiting": "squat",
+            "done":    "peace_sign",
+            "alert":   "greeting"
+          },
+          "description": "Maps agent states to VRMA animations. Use a built-in name (greeting, model_pose, peace_sign, shoot, show_full_body, spin, squat) or an absolute file path to a custom .vrma file.",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "aniBuddy.openPanel",
+        "title": "Anime Agent Monitor: Open Panel"
+      },
+      {
+        "command": "aniBuddy.loadVRM",
+        "title": "Anime Agent Monitor: Load VRM Model"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "anibuddy",
+          "title": "AniBuddy Agents",
+          "icon": "$(symbol-misc)"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^2.22.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@pixiv/three-vrm": "^3.5.2",
+    "three": "^0.184.0"
+  }
+}
