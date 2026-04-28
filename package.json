@@ -40,11 +40,11 @@
     "commands": [
       {
         "command": "aniBuddy.openPanel",
-        "title": "Anime Agent Monitor: Open Panel"
+        "title": "AniBuddy Agent Monitor: Open Panel"
       },
       {
         "command": "aniBuddy.loadVRM",
-        "title": "Anime Agent Monitor: Load VRM Model"
+        "title": "AniBuddy Agent Monitor: Load VRM Model"
       }
     ],
     "viewsContainers": {

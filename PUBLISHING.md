@@ -68,7 +68,7 @@ export JETBRAINS_MARKETPLACE_TOKEN=your_api_token_from_step_1
 
 Check `src/main/resources/META-INF/plugin.xml`:
 
-- **name**: "Anime Agent Monitor" ✓
+- **name**: "AniBuddy Agent Monitor" ✓
 - **id**: "com.justjammin.anibuddy" ✓
 - **vendor**: "justjammin" ✓
 - **description**: Present and clear ✓
@@ -132,7 +132,7 @@ JetBrains reviews all submissions. Typical timeline: **1–3 days**.
 
 ## 10. After Publication
 
-- **Check status** at [plugins.jetbrains.com](https://plugins.jetbrains.com) → search "Anime Agent Monitor"
+- **Check status** at [plugins.jetbrains.com](https://plugins.jetbrains.com) → search "AniBuddy Agent Monitor"
 - **Monitor reviews** and user feedback
 - **Update regularly** — patch bugs, add features, keep deps up-to-date
 - **Use version numbers** semver (0.1.0 → 0.1.1 patch, 0.2.0 minor, etc.)

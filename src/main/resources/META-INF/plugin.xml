@@ -1,6 +1,6 @@
 <idea-plugin>
   <id>com.justjammin.anibuddy</id>
-  <name>Anime Agent Monitor</name>
+  <name>AniBuddy Agent Monitor</name>
   <vendor>justjammin</vendor>
   <description>VRM anime avatars that visualize Claude Code agent activity in real time</description>
 
