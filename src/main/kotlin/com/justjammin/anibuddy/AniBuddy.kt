@@ -391,6 +391,8 @@ class TranscriptWatcherService(private val project: Project) {
     )
     private val discovered = mutableMapOf<String, DiscoveredProject>()
     private val spawnedNames = mutableSetOf<String>()
+    // First slot starts as placeholder — first real session claims it instead of spawning new
+    private var firstSlotClaimed = false
 
     private val toolStateMap = mapOf(
         "write_file"  to Pair("typing",  "Writing file..."),
@@ -419,6 +421,7 @@ class TranscriptWatcherService(private val project: Project) {
         if (settings.vrmPath.isNotBlank()) panel?.loadVRMFromPath(settings.vrmPath)
         settings.agents.forEach { agent ->
             if (agent.name.isNotBlank()) {
+                firstSlotClaimed = true  // manual agents occupy the first slot
                 val safe = agent.name.replace("'", "\\'")
                 panel?.sendJS("window.agentBridge?.spawnAgent('$safe')")
             }
@@ -438,10 +441,16 @@ class TranscriptWatcherService(private val project: Project) {
     private fun scanClaudeProjects() {
         val claudeHome = File(System.getProperty("user.home")).resolve(".claude/projects")
         if (!claudeHome.isDirectory) return
+        val activeThreshold = System.currentTimeMillis() - 30 * 60 * 1000L // 30 min
 
         claudeHome.listFiles { f -> f.isDirectory }?.forEach { projectDir ->
             val latest = projectDir.listFiles { f -> f.extension == "jsonl" }
                 ?.maxByOrNull { it.lastModified() } ?: return@forEach
+
+            // Only track sessions active in the last 30 minutes
+            // (already-tracked projects stay tracked once discovered)
+            val alreadyTracked = discovered.containsKey(projectDir.path)
+            if (!alreadyTracked && latest.lastModified() < activeThreshold) return@forEach
 
             val existing = discovered[projectDir.path]
             if (existing == null) {
@@ -455,7 +464,13 @@ class TranscriptWatcherService(private val project: Project) {
                 discovered[projectDir.path] = dp
                 if (spawnedNames.add(name)) {
                     val safe = name.replace("'", "\\'")
-                    panel?.sendJS("window.agentBridge?.spawnAgent('$safe')")
+                    if (!firstSlotClaimed) {
+                        // Take over the placeholder first slot instead of spawning a second
+                        firstSlotClaimed = true
+                        panel?.sendJS("window.agentBridge?.renameActiveAgent('$safe')")
+                    } else {
+                        panel?.sendJS("window.agentBridge?.spawnAgent('$safe')")
+                    }
                     panel?.updateAgent(name, "idle", "Watching...")
                 }
             } else if (existing.jsonlPath != latest.path) {
