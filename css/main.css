@@ -3,12 +3,12 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:       #020617;
-  --panel:    rgba(15, 10, 40, 0.92);
-  --border:   rgba(167, 139, 250, 0.15);
+  --bg:       #080a0d;
+  --panel:    rgba(8, 10, 14, 0.92);
+  --border:   rgba(148, 163, 184, 0.1);
   --accent:   #a78bfa;
   --text:     #e2e8f0;
-  --muted:    rgba(255,255,255,0.35);
+  --muted:    rgba(255,255,255,0.38);
   --mono:     'Fira Code', monospace;
   --sans:     'Fira Sans', sans-serif;
 }
@@ -27,8 +27,8 @@ body::before {
   content: '';
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
   background-image:
-    linear-gradient(rgba(167,139,250,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(167,139,250,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(148,163,184,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,0.025) 1px, transparent 1px);
   background-size: 36px 36px;
 }
 
@@ -38,14 +38,13 @@ body::before {
   display: flex; align-items: center; gap: 10px;
   padding: 10px 16px 8px;
   border-bottom: 1px solid var(--border);
-  background: rgba(2,6,23,0.8);
+  background: rgba(8,10,14,0.85);
   backdrop-filter: blur(8px);
 }
 #header h1 {
   font-family: var(--sans);
   font-size: 14px; font-weight: 700;
-  background: linear-gradient(90deg, #a78bfa, #f472b6, #60a5fa);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  color: var(--text);
 }
 #header .sub { font-size: 9px; color: var(--muted); letter-spacing: .1em; margin-left: auto; }
 
@@ -92,7 +91,7 @@ body::before {
 #viewport {
   flex: 1; position: relative; overflow: hidden;
   background-size: cover;
-  background: radial-gradient(ellipse 80% 40% at 50% 100%, #1a0a2e 0%, #020617 65%) no-repeat center;
+  background: radial-gradient(ellipse 80% 40% at 50% 100%, #0d1117 0%, #080a0d 65%) no-repeat center;
 }
 #canvas-container {
   width: 100%; height: 100%;
@@ -131,17 +130,22 @@ canvas { display: block; width: 100% !important; height: 100% !important; }
 /* Agent name + state HUD */
 #agent-hud {
   position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  background: rgba(0,0,0,0.62);
+  backdrop-filter: blur(6px);
+  padding: 8px 20px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 #hud-name {
   font-family: var(--sans);
-  font-size: 15px; font-weight: 700; color: var(--text);
-  text-shadow: 0 0 20px rgba(167,139,250,0.6);
+  font-size: 15px; font-weight: 700; color: #f1f5f9;
 }
 #hud-state {
   font-size: 10px; letter-spacing: .12em;
   padding: 3px 12px; border-radius: 20px;
-  border: 1px solid rgba(167,139,250,0.3);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--text);
 }
 
 /* Controls */
@@ -167,7 +171,6 @@ canvas { display: block; width: 100% !important; height: 100% !important; }
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   gap: 12px; z-index: 6;
-  background: radial-gradient(ellipse at center, rgba(124,58,237,0.08) 0%, transparent 70%);
 }
 #no-model .icon { font-size: 48px; opacity: .5; }
 #no-model h2 { font-size: 13px; color: var(--muted); text-align: center; line-height: 1.6; }
@@ -178,19 +181,19 @@ canvas { display: block; width: 100% !important; height: 100% !important; }
 }
 #load-btn {
   font-family: var(--mono); font-size: 11px;
-  background: rgba(167,139,250,0.15); border: 1px solid rgba(167,139,250,0.4);
-  color: var(--accent); border-radius: 8px; padding: 8px 20px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.28);
+  color: var(--text); border-radius: 8px; padding: 8px 20px;
   cursor: pointer; transition: all .2s; pointer-events: all;
   letter-spacing: .08em;
 }
-#load-btn:hover { background: rgba(167,139,250,0.25); }
+#load-btn:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.45); }
 #file-input { display: none; }
 
 /* ── Log panel ── */
 #log-panel {
   position: relative; z-index: 10;
   height: 120px; border-top: 1px solid var(--border);
-  background: rgba(2,6,23,0.9); display: flex; flex-direction: column;
+  background: rgba(8,10,14,0.95); display: flex; flex-direction: column;
 }
 #log-header {
   display: flex; align-items: center; gap: 8px;
@@ -267,7 +270,7 @@ canvas { display: block; width: 100% !important; height: 100% !important; }
 #settings-backdrop.show { display: block; }
 #settings-drawer {
   position: fixed; top: 0; right: 0; bottom: 0; width: 280px; z-index: 100;
-  background: rgba(8,4,24,0.98); border-left: 1px solid var(--border);
+  background: rgba(8,10,14,0.99); border-left: 1px solid var(--border);
   backdrop-filter: blur(16px);
   transform: translateX(100%); transition: transform 0.22s ease-out;
   display: flex; flex-direction: column; overflow: hidden;

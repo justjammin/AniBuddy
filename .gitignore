@@ -1,3 +1,19 @@
-*build*
-*.idea*
-*.gradle*
+# Build output
+/build/
+/out/
+
+# Gradle cache
+/.gradle/
+gradle-wrapper.jar
+
+# IDE
+/.idea/
+*.iml
+
+# Signing credentials — never commit these
+cert.pem
+privateKey.pem
+
+# OS
+.DS_Store
+PUBLISHING.md

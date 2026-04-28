@@ -1,1 +1,1 @@
-rootProject.name = "anime-agent-monitor"
+rootProject.name = "anibuddy-agent-monitor"

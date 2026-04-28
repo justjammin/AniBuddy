@@ -16,15 +16,18 @@ Plugin signing verifies authenticity and enables auto-updates. You need a certif
 
 ### Generate Signing Certificate (One-Time)
 
-Run in project root:
+`generateSigningCertificate` does not exist in Gradle Plugin 2.x. Use OpenSSL directly:
 
 ```bash
-./gradlew generateSigningCertificate \
-  --certificate-password YOUR_PASSWORD \
-  --private-key-password YOUR_PASSWORD
+# 1. Generate private key
+openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:4096 -out privateKey.pem
+
+# 2. Self-signed certificate (valid 10 years)
+openssl req -new -x509 -key privateKey.pem -out cert.pem -days 3650 \
+  -subj "/C=US/ST=State/L=City/O=justjammin/CN=AniBuddy"
 ```
 
-This creates `cert.pem` and `privateKey.pem`. Store both securely (git ignore them, use CI secrets).
+Both files go in the project root. They are already in `.gitignore` — never commit them.
 
 ### Add Signing Credentials to build.gradle.kts
 
@@ -173,7 +176,7 @@ Store `CERTIFICATE_CHAIN`, `PRIVATE_KEY`, `PRIVATE_KEY_PASSWORD`, and `JETBRAINS
 ## Troubleshooting
 
 | Issue | Solution |
-|-------|----------|
+| --- | --- |
 | "Invalid token" | Verify token at plugins.jetbrains.com, check expiry |
 | "Plugin already exists" | Increment version in build.gradle.kts and plugin.xml |
 | "Certificate expired" | Regenerate signing certificate (step 2) |
